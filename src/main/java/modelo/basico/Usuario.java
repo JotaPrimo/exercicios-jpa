@@ -1,5 +1,6 @@
 package modelo.basico;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,13 +14,17 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false)
 	private String nome;
 	
-	
+	@Column(nullable = false)
 	private String email;
 	
+	@Transient
+	private String nao_vira_colun;
+
 	public Usuario() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	public Usuario(String nome, String email) {
@@ -51,6 +56,13 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + "]";
+	}
 	
 	
+	
+
 }
