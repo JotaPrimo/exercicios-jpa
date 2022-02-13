@@ -6,11 +6,13 @@ import javax.persistence.Persistence;
 
 import modelo.basico.Usuario;
 
-public class AlterarUsuario1 {
-
+public class AlterarUsuario2 {
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("exercicios-jpa");
+		EntityManagerFactory entityManagerFactory = Persistence.
+				createEntityManagerFactory("exercicios-jpa");
+		
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
@@ -22,7 +24,8 @@ public class AlterarUsuario1 {
 		}
 		
 		// update precisa do merge para ser efetivo
-		entityManager.merge(usuario);
+		// entityManager.merge(usuario);
+		
 		entityManager.getTransaction().commit();
 		
 		entityManager.close();
